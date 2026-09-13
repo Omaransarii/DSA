@@ -5,8 +5,8 @@ class Solution {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        int [] min = new int[m]; // Min element for each row (size m)
-        int [] max = new int[n]; // Max element for each col (size n)
+        int [] min = new int[m]; // Min element for each row (size m);
+        int [] max = new int[n]; // Max element for each col (size n);
         // 1. Find min of each row
         for(int i=0;i<m;i++){
             min[i] = matrix[i][0]; // Initialize outside the j loop
