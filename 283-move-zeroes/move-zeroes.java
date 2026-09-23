@@ -1,30 +1,20 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int first = 0;
-        int second = first + 1;
+        int first = 0; // Tracks the position where the next non-zero should go
         
-        while (second < nums.length) {
-            
-            if (nums[first] == 0 && nums[second] != 0) {
+        // 'second' scans through the entire array looking for non-zero elements
+        for (int second = 0; second < nums.length; second++) {
+            // When we find a non-zero element, swap it with the 'first' pointer
+            if (nums[second] != 0) {
                 swap(nums, first, second);
-                first++;
-                second++; // FIXED: Move second forward instead of resetting it
-            } 
-           
-            else if (nums[first] != 0) {
-                first++;
-                second++;
-            } 
-            // If both are 0, or first is 0 and second is 0, just look for a non-zero with second
-            else {
-                second++;
+                first++; // Move the 'first' pointer forward
             }
         }
     }
     
-    void swap(int[] arr, int first, int last) {
-        int temp = arr[first];
-        arr[first] = arr[last];
-        arr[last] = temp;
+    void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
